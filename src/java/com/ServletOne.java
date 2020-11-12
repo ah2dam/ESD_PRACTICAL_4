@@ -32,10 +32,10 @@ public class ServletOne extends HttpServlet {
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         int numberList[] = {1,2,3,4,5,6,7,8,9,10};
-        int rnd = new Random().nextInt(numberList.length); 
-        int a = numberList[rnd];
-        int b = numberList[rnd];
-        int c = numberList[rnd];
+        Random rdn = new Random();
+        int a = numberList[rdn.nextInt(numberList.length)];
+        int b = numberList[rdn.nextInt(numberList.length)];
+        int c = numberList[rdn.nextInt(numberList.length)];
         Triangle triangle = new Triangle(a, b, c);
         
         response.setContentType("text/html;charset=UTF-8");
@@ -50,6 +50,7 @@ public class ServletOne extends HttpServlet {
             out.println("<h1>Servlet ServletOne at " + request.getContextPath() + "</h1>");
             out.println("Hello this is my first application <br>");
             out.println("The number are: " + a + " " + b + " " + c + "<br>");
+            out.println("Result: " + triangle.evalTriangle()+ "<br>");
             out.println("<h2>OS: " + System.getProperty("os.name") + "<h2>");
             out.println("</body>");
             out.println("</html>");
@@ -94,5 +95,7 @@ public class ServletOne extends HttpServlet {
     public String getServletInfo() {
         return "Short description";
     }// </editor-fold>
+
+    
 
 }
