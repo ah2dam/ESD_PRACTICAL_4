@@ -12,12 +12,12 @@
         <title>Tri-view Page</title>
     </head>
     <body>
-        <h1>The result:</h1>
+        <h1>The result: </h1>
         
         <%=request.getAttribute("nums")%>
         
         <h2>
-            <%= String str = (String)request.getAttribute("msg");
+            <% String str = (String)request.getAttribute("msg");
                 out.println(str);
             %>            
         </h2>
